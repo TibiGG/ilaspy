@@ -24,8 +24,8 @@ class TestLasBuilder(TestCase):
         las.add_explicit_hypothesis(2, "p :- not s")
         las.add_explicit_hypothesis(3, "p :- r, not s")
         expected_las = ("1 ~ p.\n"
-                        "2 ~ p :- r.\n"
                         "2 ~ p :- not s.\n"
+                        "2 ~ p :- r.\n"
                         "3 ~ p :- r, not s.")
         self.assertEqual(expected_las, las.to_string())
 
@@ -36,8 +36,8 @@ class TestLasBuilder(TestCase):
         las.add_explicit_hypothesis(2, "p :- not s")
         las.add_explicit_hypothesis(1, "p")
         expected_las = ("1 ~ p.\n"
-                        "2 ~ p :- r.\n"
                         "2 ~ p :- not s.\n"
+                        "2 ~ p :- r.\n"
                         "3 ~ p :- r, not s.")
         self.assertEqual(expected_las, las.to_string())
 
